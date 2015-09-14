@@ -99,17 +99,17 @@ class PeonBot():
                                 else:
                                     url = self.getImage(arguments)
                                 if url != '':
-                                    self.bot.sendPhoto(chat_id=chat_id, photo=url)
+                                    self.bot.sendMessage(chat_id=chat_id, text=url)
                                 else:
                                     self.bot.sendMessage(chat_id=chat_id, text="Got nothin.")    
 
                             elif command == '/gif':
                                 if noArgument:
-                                    url = self.getImage(None)
+                                    url = self.getGif(None)
                                 else:
-                                    url = self.getImage(arguments)
+                                    url = self.getGif(arguments)
                                 if url != '':
-                                    self.bot.sendPhoto(chat_id=chat_id, photo=url)
+                                    self.bot.sendMessage(chat_id=chat_id, text=url)
                                 else:
                                     self.bot.sendMessage(chat_id=chat_id, text="Got nothin.")    
 
@@ -124,6 +124,12 @@ class PeonBot():
                                 else:
                                     roll = self.rollDice(arguments)
                                     self.bot.sendMessage(chat_id=chat_id, text="Roll " + arguments + ": " + str(roll))
+
+                            elif command == '/git':
+                                if noArgument:
+                                    self.bot.sendMessage(chat_id=chat_id, text="No can do.")
+                                else:
+                                    self.bot.sendMessage(chat_id=chat_id, text="")
 
                         else:
                             rand = random.randint(0, len(PeonBot.whatStrings)-1)
